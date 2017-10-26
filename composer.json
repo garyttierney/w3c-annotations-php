@@ -1,0 +1,27 @@
+{
+  "name": "gtierney/annotation-php",
+  "description": "A PHP library for working with the W3C Web Annotation Model.",
+  "type": "library",
+  "license": "ISC",
+  "authors": [
+    {
+      "name": "Gary Tierney",
+      "email": "gary.tierney@gmx.com"
+    }
+  ],
+  "require": {
+    "ml/json-ld": "1.*",
+    "beberlei/assert": "^2.7",
+    "symfony/serializer": "^3.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Anno4Php\\": "src/Anno4Php"
+    }
+  },
+  "require-dev": {
+    "behat/behat": "^3.4",
+    "phpunit/phpunit": "^6.4",
+    "friendsofphp/php-cs-fixer": "^2.7"
+  }
+}
