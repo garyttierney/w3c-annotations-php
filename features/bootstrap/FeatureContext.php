@@ -105,7 +105,7 @@ class FeatureContext implements Context
      */
     public function creatorOrGeneratorPropertyShouldBe(string $type, string $property, $expectedValue)
     {
-        $agent = $type === 'creator' ? $this->annotation->getCreator() : $this->annotation->getGenerator();
+        $agent = 'creator' === $type ? $this->annotation->getCreator() : $this->annotation->getGenerator();
 
         switch ($property) {
             case 'name':
