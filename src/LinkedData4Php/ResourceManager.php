@@ -37,12 +37,12 @@ class ResourceManager
      * @param $data
      * @param null $type
      *
-     * @return Resource
+     * @return ResourceInterface
      */
     public function parse($data, $type = null): ResourceInterface
     {
         if (!is_array($data) && !is_string($data)) {
-            throw new InvalidArgumentException('Expected array or string');
+            throw new \InvalidArgumentException('Expected array or string');
         }
 
         $data = JsonLD::compact($data);
