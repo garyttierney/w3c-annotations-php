@@ -3,7 +3,7 @@
 namespace LinkedData4Php\Model\OA\Target;
 
 use LinkedData4Php\Annotations\Iri;
-use LinkedData4Php\Model\Resource;
+use LinkedData4Php\Model\ResourceInterface;
 use LinkedData4Php\Model\Ontology\OADM;
 
 /**
@@ -14,20 +14,20 @@ interface SpecificResource extends Target
     /**
      * @Iri(OADM::HAS_SELECTOR)
      */
-    public function getSelector(): Resource;
+    public function getSelector(): ResourceInterface;
 
     /**
      * @Iri(OADM::HAS_SOURCE)
      */
-    public function getSource(): Resource;
+    public function getSource(): ResourceInterface;
 
     /**
      * @Iri(OADM::HAS_SCOPE)
      */
-    public function getScope(): Resource;
+    public function getScope(): ResourceInterface;
 
     /**
      * @Iri(OADM::STYLE_CLASS, collection=true, type="string")
      */
-    public function getStyleClasses(): Resource;
+    public function getStyleClasses(): ResourceInterface;
 }

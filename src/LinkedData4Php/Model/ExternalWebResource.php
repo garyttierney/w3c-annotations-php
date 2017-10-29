@@ -2,6 +2,6 @@
 
 namespace LinkedData4Php\Model;
 
-interface ExternalWebResource extends Resource
+interface ExternalWebResource extends ResourceInterface
 {
 }

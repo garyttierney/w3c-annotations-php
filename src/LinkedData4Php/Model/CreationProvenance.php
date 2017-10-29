@@ -5,7 +5,7 @@ namespace LinkedData4Php\Model;
 use LinkedData4Php\Annotations\Iri;
 use LinkedData4Php\Model\Ontology\DCTERMS;
 
-interface CreationProvenance extends Resource
+interface CreationProvenance extends ResourceInterface
 {
     /**
      * @Iri(DCTERMS::CREATOR, type=Agent::class)

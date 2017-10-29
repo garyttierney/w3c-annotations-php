@@ -4,7 +4,7 @@ namespace LinkedData4Php\CodeGen;
 
 use LinkedData4Php\Annotations\Iri;
 use LinkedData4Php\Metadata\ResourceMetadata;
-use LinkedData4Php\Model\Resource;
+use LinkedData4Php\Model\ResourceInterface;
 use Doctrine\Common\Annotations\AnnotationReader;
 use ReflectionClass;
 
@@ -53,7 +53,7 @@ class ResourceCodeGenerator
             $declaringClass = $method->getDeclaringClass();
             $declaringClassName = $declaringClass->getName();
 
-            if (Resource::class === $declaringClassName) {
+            if (ResourceInterface::class === $declaringClassName) {
                 continue;
             }
 

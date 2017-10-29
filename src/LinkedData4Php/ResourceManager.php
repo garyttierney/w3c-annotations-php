@@ -4,7 +4,7 @@ namespace LinkedData4Php;
 
 use LinkedData4Php\Loader\ResourceLoader;
 use LinkedData4Php\Metadata\ResourceMetadataRegistry;
-use LinkedData4Php\Model\Resource;
+use LinkedData4Php\Model\ResourceInterface;
 use LinkedData4Php\Model\SimplePropertyMap;
 use LinkedData4Php\Model\SimpleResource;
 use ML\JsonLD\JsonLD;
@@ -39,7 +39,7 @@ class ResourceManager
      *
      * @return Resource
      */
-    public function parse($data, $type = null): Resource
+    public function parse($data, $type = null): ResourceInterface
     {
         if (!is_array($data) && !is_string($data)) {
             throw new InvalidArgumentException('Expected array or string');
@@ -50,11 +50,11 @@ class ResourceManager
         return $this->serializer->deserialize($data, $type ?: $data->{'@type'}, 'object');
     }
 
-    public function load($iri): Resource
+    public function load($iri): ResourceInterface
     {
     }
 
-    public function create(string $type): Resource
+    public function create(string $type): ResourceInterface
     {
         $properties = new SimplePropertyMap();
 

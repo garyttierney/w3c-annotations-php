@@ -5,7 +5,7 @@ namespace LinkedData4Php\Model;
 use LinkedData4Php\Model\Properties\PropertyMap;
 use ML\IRI\IRI;
 
-interface Resource
+interface ResourceInterface
 {
     public function getId(): ?IRI;
 

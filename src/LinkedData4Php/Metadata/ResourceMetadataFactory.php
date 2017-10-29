@@ -3,7 +3,7 @@
 namespace LinkedData4Php\Metadata;
 
 use LinkedData4Php\Annotations\Iri;
-use LinkedData4Php\Model\Resource;
+use LinkedData4Php\Model\ResourceInterface;
 use Doctrine\Common\Annotations\AnnotationReader;
 use LinkedData4Php\Model\SimpleResource;
 
@@ -37,7 +37,7 @@ class ResourceMetadataFactory
             $declaringClass = $method->getDeclaringClass();
             $declaringClassName = $declaringClass->getName();
 
-            if (Resource::class === $declaringClassName) {
+            if (ResourceInterface::class === $declaringClassName) {
                 continue;
             }
 

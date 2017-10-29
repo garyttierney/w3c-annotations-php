@@ -4,9 +4,9 @@ namespace LinkedData4Php\Model\OA;
 
 use LinkedData4Php\Annotations\Iri;
 use LinkedData4Php\Model\Ontology\ASO;
-use LinkedData4Php\Model\Resource;
+use LinkedData4Php\Model\ResourceInterface;
 
-interface AnnotationPage extends Resource
+interface AnnotationPage extends ResourceInterface
 {
     /**
      * @Iri(ASO::PART_OF)

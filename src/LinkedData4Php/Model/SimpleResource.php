@@ -5,7 +5,7 @@ namespace LinkedData4Php\Model;
 use LinkedData4Php\Model\Properties\PropertyMap;
 use ML\IRI\IRI;
 
-class SimpleResource implements Resource
+class SimpleResource implements ResourceInterface
 {
     /**
      * @var PropertyMap
