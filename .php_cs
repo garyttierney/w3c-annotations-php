@@ -24,6 +24,7 @@ return PhpCsFixer\Config::create()
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->in(__DIR__.'/src')
+            ->in(__DIR__.'/features')
             ->append([__FILE__])
     )
 ;

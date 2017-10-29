@@ -1,6 +1,6 @@
 <?php
 
-namespace Anno4Php\Model\Ontology;
+namespace LinkedData4Php\Model\Ontology;
 
 /**
  * Ontology class for the <a href="http://www.w3.org/ns/oa#">Open Annotation Data Model (oa:)</a>.
@@ -122,8 +122,6 @@ final class OADM
      * A resource which describes styles for resources participating in the Annotation using CSS.
      */
     const CSS_STYLE = self::NS.'CssStyle';
-
-    // ---------- Motivation ----------
 
     /**
      * Refers to http://www.w3.org/ns/oa#Motivation
@@ -326,7 +324,7 @@ final class OADM
 
     /**
      * Refers to http://www.w3.org/ns/oa#serializedBy
-     * The object of the relationship is the agent, likely software, responsible for generating the serialization of the Annotation's serialization.
+     * The object of the relationship is the agent, likely software, responsible for generatng the serialization of the Annotation's serialization.
      * It is RECOMMENDED to use these and other FOAF terms to describe agents: foaf:Person, prov:SoftwareAgent, foaf:Organization, foaf:name, foaf:mbox, foaf:openid, foaf:homepage
      * There MAY be 0 or more oa:serializedBy relationships per Annotation.
      */

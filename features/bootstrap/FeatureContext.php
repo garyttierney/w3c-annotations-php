@@ -1,14 +1,30 @@
 <?php
 
-use Anno4Php\Model\Annotation;
-use Anno4Php\Model\Ontology\OADM;
-use Anno4Php\Serializer\AnnotationSerializer;
 use Behat\Behat\Context\Context;
+use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Behat\Gherkin\Node\PyStringNode;
+use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
+use LinkedData4Php\CodeGen\ResourceCodeGenerator;
+use LinkedData4Php\Metadata\ResourceMetadataFactory;
+use LinkedData4Php\Metadata\ResourceMetadataRegistry;
+use LinkedData4Php\Model\Agent;
+use LinkedData4Php\Model\OA\Annotation;
+use LinkedData4Php\Model\OA\Body\TextualBody;
+use LinkedData4Php\Model\OA\Motivation;
+use LinkedData4Php\Model\OA\Target\SpecificResource;
+use LinkedData4Php\Model\Ontology\OADM;
+use LinkedData4Php\ResourceManager;
+use LinkedData4Php\Serializer\ResourceSerializerFactory;
 use PHPUnit\Framework\Assert;
 
 class FeatureContext implements Context
 {
+    /**
+     * @var ResourceManager
+     */
+    private static $manager;
+
     /**
      * @var string
      */
@@ -20,13 +36,25 @@ class FeatureContext implements Context
     private $annotation;
 
     /**
-     * @var AnnotationSerializer
+     * @BeforeSuite
      */
-    private $serializer;
-
-    public function __construct()
+    public static function prepare(BeforeSuiteScope $scope)
     {
-        $this->serializer = new AnnotationSerializer();
+        AnnotationRegistry::registerLoader('class_exists');
+
+        $annotationReader = new AnnotationReader();
+        $metadataFactory = new ResourceMetadataFactory($annotationReader);
+        $codeGen = new ResourceCodeGenerator($annotationReader);
+
+        $metadataRegistry = new ResourceMetadataRegistry($metadataFactory, $codeGen);
+        $metadataRegistry->register(Annotation::class);
+        $metadataRegistry->register(Agent::class);
+        $metadataRegistry->register(TextualBody::class);
+        $metadataRegistry->register(SpecificResource::class);
+        $metadataRegistry->register(Motivation::class);
+
+        $serializerFactory = new ResourceSerializerFactory($metadataRegistry);
+        self:: $manager = new ResourceManager($metadataRegistry, $serializerFactory->create());
     }
 
     /**
@@ -42,7 +70,7 @@ class FeatureContext implements Context
      */
     public function parseAnnotation()
     {
-        $this->annotation = $this->serializer->deserialize($this->json);
+        $this->annotation = self::$manager->parse($this->json, Annotation::class);
     }
 
     /**
@@ -58,10 +86,10 @@ class FeatureContext implements Context
      */
     public function bodyOrTargetCountShouldBe(int $expected, string $type)
     {
-        switch($type) {
+        switch ($type) {
             case 'target':
             case 'targets':
-                $nodes =  $this->annotation->getTargets();
+                $nodes = $this->annotation->getTargets();
                 break;
             case 'body':
             case 'bodies':
@@ -71,4 +99,8 @@ class FeatureContext implements Context
 
         Assert::assertCount($expected, $nodes);
     }
+
+    /*
+     * @Then /
+     */
 }

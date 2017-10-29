@@ -1,6 +1,6 @@
 <?php
 
-namespace Anno4Php\Model\Ontology;
+namespace LinkedData4Php\Model\Ontology;
 
 /**
  * Ontology class for the <a href="http://dublincore.org/documents/dcmi-terms/">Dublin Core ontology (dc:)</a>.
