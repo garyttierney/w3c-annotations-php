@@ -8,11 +8,11 @@ to object graphs conforming to a given PHP interface.
 
 LinkedData4Php relies on the following packages:
 
-* symfony/serializer - A generic serializer/deserializer implementation.
-* http-plug - A pluggable HTTP client implementation.
-* doctrine/annotations - Annotation reader for PHP docblocks.
-* ml/json-ld - A conforming JSON-LD processor.
-* beberlei/assert - An assertion library for runtime assertions
+* [symfony/serializer](https://github.com/symfony/serializer) - A generic serializer/deserializer implementation.
+* [httplug](https://github.com/php-http/httplug) - A pluggable HTTP client implementation.
+* [doctrine/annotations](https://github.com/doctrine/annotations) - Annotation reader for PHP docblocks.
+* [ml/json-ld](https://github.com/lanthaler/JsonLD) - A conforming JSON-LD processor.
+* [beberlei/assert](https://github.com/beberlei/assert) - A library for runtime assertions.
 
 ## License
 ```
