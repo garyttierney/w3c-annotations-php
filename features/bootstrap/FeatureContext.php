@@ -100,7 +100,30 @@ class FeatureContext implements Context
         Assert::assertCount($expected, $nodes);
     }
 
-    /*
-     * @Then /
+    /**
+     * @Then /^the (creator|generator) ([a-zA-Z]+) should be (.*)$/
      */
+    public function creatorOrGeneratorPropertyShouldBe(string $type, string $property, $expectedValue)
+    {
+        $agent = $type === 'creator' ? $this->annotation->getCreator() : $this->annotation->getGenerator();
+
+        switch ($property) {
+            case 'name':
+                $actualValue = $agent->getName();
+                break;
+            case 'homepage':
+                $actualValue = $agent->getHomepage();
+                break;
+            case 'nickname':
+                $actualValue = $agent->getNickname();
+                break;
+            case 'id':
+                $actualValue = $agent->getId();
+                break;
+            default:
+                throw new InvalidArgumentException("Invalid property: $property");
+        }
+
+        Assert::assertEquals($expectedValue, $actualValue);
+    }
 }

@@ -9,7 +9,7 @@ use LinkedData4Php\Model\Ontology\FOAF;
 /**
  * @Iri(PROV::AGENT)
  */
-interface Agent
+interface Agent extends ResourceInterface
 {
     /**
      * @Iri(FOAF::NAME, type="string")
@@ -20,4 +20,9 @@ interface Agent
      * @Iri(FOAF::HOMEPAGE, type="string")
      */
     public function getHomepage(): string;
+
+    /**
+     * @Iri(FOAF::NICK, type="string")
+     */
+    public function getNickname(): string;
 }
