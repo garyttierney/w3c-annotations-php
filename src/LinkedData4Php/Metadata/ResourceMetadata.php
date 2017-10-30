@@ -30,7 +30,7 @@ class ResourceMetadata
         $this->superTypes = $superTypes;
     }
 
-    public function hasPropertyMetadata($propertyName)
+    public function hasPropertyMetadata($propertyName): bool
     {
         return isset($this->properties[$propertyName]);
     }
@@ -43,7 +43,7 @@ class ResourceMetadata
     /**
      * @return string
      */
-    public function getClassName()
+    public function getClassName(): string
     {
         return $this->class;
     }
@@ -51,7 +51,7 @@ class ResourceMetadata
     /**
      * @return string
      */
-    public function getIri()
+    public function getIri(): string
     {
         return $this->iri;
     }
@@ -59,7 +59,7 @@ class ResourceMetadata
     /**
      * @return string[]
      */
-    public function getSuperTypes()
+    public function getSuperTypes(): array
     {
         return $this->superTypes;
     }

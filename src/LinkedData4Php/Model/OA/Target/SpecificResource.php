@@ -29,5 +29,5 @@ interface SpecificResource extends Target
     /**
      * @Iri(OADM::STYLE_CLASS, collection=true, type="string")
      */
-    public function getStyleClasses(): ResourceInterface;
+    public function getStyleClasses(): array;
 }

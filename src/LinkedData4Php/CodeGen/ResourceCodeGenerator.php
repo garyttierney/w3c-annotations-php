@@ -25,25 +25,20 @@ class ResourceCodeGenerator
         $resourceInterfaceName = $metadata->getClassName();
         $resourceInterface = new ReflectionClass($resourceInterfaceName);
 
-        $directSuperTypes = [$resourceInterfaceName];
-
         $resourceClassBody = str_replace(
-            ['<namespace>', '<className>'],
-            [$resourceInterface->getNamespaceName(), $resourceInterface->getShortName().'Impl'],
+            [
+                '<namespace>',
+                '<className>',
+                '<implementsList>',
+            ],
+            [
+                $resourceInterface->getNamespaceName(),
+                $resourceInterface->getShortName().'Impl',
+                '\\'.$resourceInterface->getName(),
+            ],
             self::classSkeleton()
         );
 
-        $implementsList = implode(
-            ', ',
-            array_map(
-                function (string $type) {
-                    return "\\$type";
-                },
-                $directSuperTypes
-            )
-        );
-
-        $resourceClassBody = str_replace('<implementsList>', $implementsList, $resourceClassBody);
         $methodBodies = [];
 
         foreach ($resourceInterface->getMethods() as $method) {

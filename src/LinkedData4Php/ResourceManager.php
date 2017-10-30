@@ -2,7 +2,7 @@
 
 namespace LinkedData4Php;
 
-use LinkedData4Php\Loader\ResourceLoader;
+use LinkedData4Php\Loader\DocumentLoader;
 use LinkedData4Php\Metadata\ResourceMetadataRegistry;
 use LinkedData4Php\Model\ResourceInterface;
 use LinkedData4Php\Model\SimplePropertyMap;
@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 class ResourceManager
 {
     /**
-     * @var ResourceLoader
+     * @var DocumentLoader
      */
     private $loader;
     /**

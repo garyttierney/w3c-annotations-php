@@ -5,7 +5,7 @@ namespace LinkedData4Php\Loader;
 use Exception;
 use Throwable;
 
-class ResourceLoaderException extends Exception
+class DocumentLoaderException extends Exception
 {
     public function __construct($message, Throwable $previous = null)
     {
