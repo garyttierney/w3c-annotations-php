@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/garyttierney/w3c-annotations-php.svg?branch=master)](https://travis-ci.org/garyttierney/w3c-annotations-php)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/garyttierney/w3c-annotations-php/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/garyttierney/w3c-annotations-php/?branch=master)
+
 # LinkedData4Php
 
 LinkedData4Php is a PHP library for working with JSON-LD and other forms of linked
