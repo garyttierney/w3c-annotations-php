@@ -1,6 +1,5 @@
 <?php
 
-use Behat\Behat\Context\Context;
 use Behat\Testwork\Hook\Scope\BeforeSuiteScope;
 use Behat\Gherkin\Node\PyStringNode;
 use Doctrine\Common\Annotations\AnnotationReader;
@@ -19,10 +18,17 @@ use LinkedData4Php\Model\OA\Target\SpecificResource;
 use LinkedData4Php\ResourceManager;
 use LinkedData4Php\Serializer\ResourceSerializerFactory;
 
-class FeatureContext implements Context
+trait ResourceContextTrait
 {
-    use IiifTrait;
-    use OpenAnnotationTrait;
+    /**
+     * @var ResourceManager
+     */
+    private static $manager;
+
+    /**
+     * @var string
+     */
+    private $json;
 
     /**
      * @Given the JSON is:

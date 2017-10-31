@@ -1,0 +1,8 @@
+default:
+    suites:
+        iiif_features:
+            paths:    [ %paths.base%/features/iiif ]
+            contexts: [ IiifContext ]
+        openannotation_features:
+            paths:    [ %paths.base%/features/oa ]
+            contexts: [ OpenAnnotationContext ]

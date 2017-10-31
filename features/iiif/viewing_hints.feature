@@ -1,4 +1,5 @@
-Feature: IIIF Presentation API JSON-LD
+Feature: IIIF Presentation API Viewing Hints
+
   Scenario:
     Given the JSON is:
 

@@ -21,7 +21,9 @@ final class ResourceCode
 
     public function load()
     {
-        eval($this->code);
+        if (!class_exists($this->fqName)) {
+            eval($this->code);
+        }
     }
 
     public function getFqName()

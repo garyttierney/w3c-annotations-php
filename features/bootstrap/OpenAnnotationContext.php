@@ -1,13 +1,14 @@
 <?php
 
 
+use Behat\Behat\Context\Context;
 use LinkedData4Php\Model\OA\Annotation;
 use LinkedData4Php\Model\Ontology\OADM;
 use PHPUnit\Framework\Assert;
 
-trait OpenAnnotationTrait
+class OpenAnnotationContext implements Context
 {
-    use ResourceTrait;
+    use ResourceContextTrait;
 
     /**
      * @var Annotation

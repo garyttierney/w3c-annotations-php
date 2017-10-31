@@ -1,13 +1,14 @@
 <?php
 
 
+use Behat\Behat\Context\Context;
 use LinkedData4Php\Model\IIIF\Manifest;
 use LinkedData4Php\Model\Ontology\IIIFP;
 use PHPUnit\Framework\Assert;
 
-trait IiifTrait
+class IiifContext implements Context
 {
-    use ResourceTrait;
+    use ResourceContextTrait;
 
     /**
      * @var Manifest
