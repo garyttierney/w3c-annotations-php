@@ -27,14 +27,9 @@ class ResourceDenormalizer implements DenormalizerInterface, DenormalizerAwareIn
     }
 
     /**
-     * Denormalizes data back into an object of the given class.
+     * Denormalizes a blob of JSON-LD into a graph of {@link ResourceInterface}s.
      *
-     * @param mixed  $data    data to restore
-     * @param string $class   the expected class to instantiate
-     * @param string $format  format the given data was extracted from
-     * @param array  $context options available to the denormalizer
-     *
-     * @return object
+     * {@inheritdoc}
      */
     public function denormalize($data, $class, $format = null, array $context = [])
     {

@@ -24,7 +24,6 @@ class ResourceSerializerFactory
         return new Serializer(
             [
                 new ResourceDenormalizer($this->registry),
-                new ResourceNormalizer(),
             ],
             [
                 new StdClassDecoder(),
