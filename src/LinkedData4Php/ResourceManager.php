@@ -5,6 +5,7 @@ namespace LinkedData4Php;
 use LinkedData4Php\Loader\DocumentLoader;
 use LinkedData4Php\Metadata\ResourceMetadataRegistry;
 use LinkedData4Php\Model\ResourceInterface;
+use LinkedData4Php\Model\SimpleResource;
 use ML\JsonLD\JsonLD;
 use Symfony\Component\Serializer\SerializerInterface;
 
@@ -47,6 +48,13 @@ class ResourceManager
 
         $data = JsonLD::compact($data);
 
-        return $this->serializer->deserialize($data, $type ?: $data->{'@type'}, 'object');
+        return $this->serializer->deserialize(
+            $data,
+            SimpleResource::class,
+            'object',
+            [
+                'resource_class' => $data->{'@type'},
+            ]
+        );
     }
 }

@@ -29,6 +29,11 @@ class ResourcePropertyMetadata
         return $this->valueType;
     }
 
+    public function getIri()
+    {
+        return $this->iri;
+    }
+
     public function isCollection()
     {
         return ResourcePropertyType::COLLECTION === $this->propertyType;
